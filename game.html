@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="rockp.css">
+        <title>Game</title>
+        <style>
+            html{
+                font-family: Arial;
+            }body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container{
+                background-color: blanchedalmond;
+                border: 2px dotted black;
+                border-radius: 20px;
+                padding: 50px;
+            }
+            .btn{
+                height: 100px;
+                width: 100px;
+                font-size: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>ROCK   PAPER   SCISSOR</h1>
+            <h2>Let's Start</h2>
+            <h3>Computer have choosed</h3>
+            <h3 id="com">Nothing</h3>
+            <button class="btn" onclick="play('Rock')">🪨</button>
+            <button class="btn" onclick="play('Paper')">🗞️</button>
+            <button class="btn" onclick="play('Scissor')">✂️</button>
+            <h3 id="result"></h3>
+        </div>
+        <script>
+            function play(userChoice){
+                while(1){
+                    let arr=["Rock","Paper","Scissor"]
+                    let Computer=arr[Math.floor(Math.random()*arr.length)]
+                    let result=(Computer===userChoice)?"Draw":
+                    ((Computer==="Rock" && userChoice==="Paper")||(Computer==="Paper" && userChoice==="Scissor")||(Computer==="Scissor" && userChoice==="Rock"))?"You Won":"Better Luck Next Time"
+                    document.getElementById("result").innerText=result
+                    document.getElementById("com").innerHTML=Computer
+                    return
+                }
+                }
+        </script>
+    </body>
+</html>
